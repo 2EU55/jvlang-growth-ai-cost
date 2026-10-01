@@ -79,6 +79,8 @@ A gateway gives every request a record: who called, which model, how many tokens
 **Observability:**
 
 - [Langfuse](https://github.com/langfuse/langfuse) - Most-adopted open source LLM observability; automatic cost calculation per generation. Acquired by ClickHouse, Jan 2026.
+- [Opik](https://github.com/comet-ml/opik) - LLM observability with cost estimates at span, trace, and project level, plus custom-model pricing.
+- [OpenLIT](https://github.com/openlit/openlit) - OpenTelemetry-native telemetry for Bedrock, LLM apps, and GPUs, with token, latency, and cost tracking.
 - [Helicone](https://github.com/Helicone/helicone) - Open source observability plus a Rust gateway; one-line integration.
 - [tokencost](https://github.com/AgentOps-AI/tokencost) - $ estimates for 400+ LLMs *before* you call.
 - [ccusage](https://github.com/ryoppippi/ccusage) - CLI for local coding-agent spend (Claude Code, Codex, Gemini CLI, +more). The de facto individual-dev standard.
@@ -118,6 +120,8 @@ Measure cost per completed task — per resolved ticket, per merged PR — not p
 - [CloudZero: FinOps for AI](https://www.cloudzero.com/blog/finops-for-ai/) - Why traditional tagging breaks for LLMs and how to capture allocation at the gateway layer instead.
 - [Finout: FinOps for AI agents](https://www.finout.io/blog/finops-for-ai-agents-a-four-step-allocation-framework) - Four-step allocation framework for agentic workloads.
 - [OpenMeter](https://github.com/openmeterio/openmeter) - Open source usage metering with first-class token metering; the per-customer margin layer once AI cost is your COGS.
+- [OpenCost](https://github.com/opencost/opencost) - Allocates Kubernetes and vLLM inference spend, including per-token infrastructure cost and KV-cache savings.
+- [Cloud Custodian](https://github.com/cloud-custodian/cloud-custodian) - Policy engine to find and remediate AWS waste, including native Bedrock resource coverage.
 - [Orb](https://www.withorb.com/) - Usage-based billing engine; metrics defined in SQL.
 - [TrueFoundry: team budgets and chargeback](https://www.truefoundry.com/blog/llm-cost-attribution-team-budgets) - Chargeback reporting down to team / agent / model.
 
@@ -160,6 +164,7 @@ Caching is prefix-matched — a timestamp at the top of the system prompt means 
 
 Surprise bills often come from dev, not prod — e.g. a retry loop in CI running all weekend.
 
+- [Infracost](https://github.com/infracost/infracost) - Pre-deployment cost diffs for Terraform, CloudFormation, AWS CDK, pull requests, and AI coding agents.
 - [vcrpy](https://github.com/kevin1024/vcrpy) - Record real API interactions once, replay in every CI run; test cost drops to ~$0.
 - [llmock](https://github.com/CopilotKit/llmock) - Deterministic mock LLM server with streaming and record/replay.
 - [mockllm](https://github.com/StacklokLabs/mockllm) - YAML-configured mock server mimicking OpenAI/Anthropic wire formats.
@@ -226,6 +231,7 @@ Only pays off at sustained volume (~10M+ tokens/day) — and it permanently cost
 
 **Orchestration and pricing:**
 
+- [Karpenter](https://github.com/aws/karpenter-provider-aws) - AWS-native Kubernetes provisioning and consolidation; matches nodes to workloads and removes idle capacity, including GPUs.
 - [SkyPilot](https://github.com/skypilot-org/skypilot) - Auto-routes workloads to the cheapest available cloud/region/spot across 20+ providers.
 - [dstack](https://github.com/dstackai/dstack) - Open GPU orchestrator across clouds + on-prem; spot/preemptible scheduling.
 - [GetDeploying GPU price tracker](https://getdeploying.com/gpus/nvidia-h200) - Live H100/H200 prices across 32+ providers. (June 2026: H200 on-demand median ~$4.11/hr, spot floor ~$1/hr.)
@@ -589,7 +595,7 @@ Other curated lists adjacent to this one. Pull from them for deeper coverage of 
 
 ## Tools
 
-Open source tools specifically built for AI cost management.
+Open source tools for AI cost management and the cloud infrastructure underneath it.
 
 | Tool | What It Does | License |
 |------|-------------|---------|
@@ -597,8 +603,14 @@ Open source tools specifically built for AI cost management.
 | [Portkey Gateway](https://github.com/Portkey-AI/gateway) | AI gateway: governance, cost controls, MCP | Apache 2.0 |
 | [Bifrost](https://github.com/maximhq/bifrost) | High-throughput Go gateway with hierarchical budgets | Apache 2.0 |
 | [Langfuse](https://github.com/langfuse/langfuse) | Open source LLM cost analytics | MIT |
+| [Opik](https://github.com/comet-ml/opik) | LLM trace and project cost analytics | Apache 2.0 |
+| [OpenLIT](https://github.com/openlit/openlit) | OTel LLM, Bedrock, and GPU cost telemetry | Apache 2.0 |
 | [Helicone](https://github.com/Helicone/helicone) | LLM observability + Rust gateway | Apache 2.0 |
 | [OpenMeter](https://github.com/openmeterio/openmeter) | Usage/token metering for AI billing | Apache 2.0 |
+| [OpenCost](https://github.com/opencost/opencost) | Kubernetes and vLLM cost allocation | Apache 2.0 |
+| [Infracost](https://github.com/infracost/infracost) | Pre-deployment AWS and cloud cost checks | Apache 2.0 |
+| [Cloud Custodian](https://github.com/cloud-custodian/cloud-custodian) | AWS waste-remediation policy engine | Apache 2.0 |
+| [Karpenter](https://github.com/aws/karpenter-provider-aws) | EKS node provisioning and consolidation | Apache 2.0 |
 | [ccusage](https://github.com/ryoppippi/ccusage) | Local coding-agent spend reports | MIT |
 | [GPTCache](https://github.com/zilliztech/GPTCache) | Semantic cache for LLM responses | MIT |
 | [promptfoo](https://github.com/promptfoo/promptfoo) | Eval prompts/models on your data with cost matrix | MIT |
